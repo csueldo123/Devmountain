@@ -1,5 +1,5 @@
 h1{
-    color: red;
+    color: black;
 }
 body{
     background-image: url("img/trees.jpeg");
@@ -8,9 +8,43 @@ body{
     height: 100vh;
 }
 .main-container {
-    margin: 25vh auto;
+    margin: 30vh auto;
     width: 500px;
     height: 300px;
     border: 1px black solid;
     background-color: white;
+    text-align: center;
+    padding-top: 10px;
+
+}
+#title {
+    letter-spacing: 1px;
+}
+.login-container {
+    margin: auto;
+    width: 250px;
+    text-align: left;
+    border-top: 1px solid gray;
+    padding: 10px;
+}
+.label-input {
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.sub-title {
+    color:#215848;
+}
+.btn-container{
+    text-align: center;
+}
+.login-button {
+    margin-top: 10px;
+    font-size: 20px;
+    background-color: #215848;
+    width: 50%;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
