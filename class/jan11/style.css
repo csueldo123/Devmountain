@@ -4,8 +4,12 @@ h1{
 body{
     background-image: url("img/trees.jpeg");
     background-size: cover;
-    font-family: sans-serif;
-    height: 100vh;
+    background-repeat: no-repeat;
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Sedgwick Ave Display', cursive;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Alegreya Sans', sans-serif;
+    height: 100%;
 }
 .main-container {
     margin: 30vh auto;
@@ -15,6 +19,8 @@ body{
     background-color: white;
     text-align: center;
     padding-top: 10px;
+    opacity: .75;
+    border-radius: 4px;
 
 }
 #title {
@@ -22,24 +28,36 @@ body{
 }
 .login-container {
     margin: auto;
-    width: 250px;
+    width: 300px;
     text-align: left;
     border-top: 1px solid gray;
-    padding: 10px;
+    padding-top: 5px;
 }
 .label-input {
     margin: 15px 0;
     display: flex;
     justify-content: space-between;
 }
+.label-input label {
+    padding-top: 7px;
+}
+.label-input input {
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 70%;
+    outline: none;
+    font-size: 20px;
+
+}
 .sub-title {
     color:#215848;
+    font-size: 25px;
 }
 .btn-container{
     text-align: center;
 }
 .login-button {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 20px;
     background-color: #215848;
     width: 50%;
