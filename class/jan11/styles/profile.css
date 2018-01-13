@@ -2,5 +2,56 @@ body{
     background-image: url("/img/profile.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+.header-nav {
+    height: 75px;
+    background-color: rgb(255, 255, 255);
+    opacity: .5;
+    letter-spacing: 1px;
+}
+.title{
+    width: 300px;
+    font-size: 35px;
+    float: left;
+    padding: 15px;
+    margin-left: 30px;
+    color: #215258;
+}
+.nav-buttons{
+    width: 150px;
+    float: right;
+    padding: 25px;
+    margin-right: 10px;
+    font-size: 24px;
+}
+.feed-btn{
+    color: #215848;
+    display: inline-block;
+    float: left;
+}
+
+.logout-btn{
+    color: #215848;
+    display: inline-block;
+    float: right;
+}
+
+.main-container{
+    margin: auto;
     height: 100%;
+    width: 50%;
+    text-align: center;
+    /* background-color: white;
+    opacity: .6; */
+}
+.main-container h1 {
+    font-size: 90px;
+    margin: 0;
+}
+
+.account-container{
+    margin-top: 30vh;
 }
