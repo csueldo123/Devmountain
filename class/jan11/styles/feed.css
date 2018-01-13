@@ -53,10 +53,13 @@ h1.feed-title{
     width: 60%;
     margin: auto;
     margin-bottom: 20px;
-    border: solid 1px grey;
+    border: solid 1px rgb(122, 122, 122);
     border-radius: 4px;
     padding: 20px;
     display: flex;
+    background-color: rgb(122, 122, 122);
+    opacity: .9;
+
 }
 .card-container img{
     width: 25%;
