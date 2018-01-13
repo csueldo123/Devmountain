@@ -2,7 +2,7 @@ h1{
     color: black;
 }
 body{
-    background-image: url("img/trees.jpeg");
+    background-image: url("/img/trees.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Dosis', sans-serif;
@@ -19,7 +19,7 @@ body{
     background-color: white;
     text-align: center;
     padding-top: 10px;
-    opacity: .75;
+    opacity: .6;
     border-radius: 4px;
 
 }
