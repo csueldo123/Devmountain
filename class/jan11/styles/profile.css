@@ -1,20 +1,21 @@
 body{
-    background-image: url("/img/profile.jpeg");
+    background-image: linear-gradient( rgba(12, 12, 12, 0.15), 
+    rgba(12, 12, 12, 0.15)), url("/img/profile.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    background-attachment: fixed;
     margin: 0;
 }
 
 .header-nav {
     height: 75px;
-    background-color: rgb(255, 255, 255);
-    opacity: .5;
+    /* background-color: rgb(255, 255, 255); */
+    opacity: .9;
     letter-spacing: 1px;
 }
 .title{
     width: 300px;
-    font-size: 35px;
+    font-size: 40px;
     float: left;
     padding: 15px;
     margin-left: 30px;
@@ -29,29 +30,28 @@ body{
 }
 .feed-btn{
     color: #215848;
-    display: inline-block;
     float: left;
 }
 
 .logout-btn{
     color: #215848;
-    display: inline-block;
     float: right;
 }
 
 .main-container{
     margin: auto;
-    height: 100%;
+    
     width: 50%;
     text-align: center;
     /* background-color: white;
     opacity: .6; */
 }
 .main-container h1 {
-    font-size: 90px;
+    font-size: 750%;
     margin: 0;
+    color: white;
 }
 
 .account-container{
-    margin-top: 30vh;
+    margin-top: 40vh;
 }
