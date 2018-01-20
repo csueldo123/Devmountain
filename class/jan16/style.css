@@ -14,6 +14,7 @@ body {
 }
 .navbar-top-container{
     display: flex;
+    flex-flow: row;
     flex-direction: row;
     justify-content: space-between;
     height: 35px;
@@ -22,18 +23,27 @@ body {
 }
 .nav-left-container{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 35px;
 }
 .nav-right-container{
     display: flex;
 }
 .box {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: lightgray;
     margin-top: 0;
     margin-bottom: 0;
     width: 80px;
     height: 35px;
     border-right: 1px solid lightgray;
+}
+#box{
+    width: 150px;
+    border-left: 1px solid lightgray;
 }
 
 /* -- bottom section of navbar -- */
