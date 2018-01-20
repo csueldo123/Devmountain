@@ -61,7 +61,6 @@ body {
 #nike_logo {
     width: 60px;
     margin-left: 25px;
-    padding-top: 25px;
 }
 .nav-links {
     display: flex;
@@ -95,10 +94,12 @@ img{
     width: 100%;
 }
 
-.video{
-    border: 1px solid yellow;
-}
+/* .video{
 
+} */
+#jordan {
+    margin-top: 100px;
+}
 
 
 /*-- MEDIA QUIERIES --*/
