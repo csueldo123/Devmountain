@@ -8,7 +8,9 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
+    background-color: white;
     width: 100%;
+    z-index: 30;
 }
 .navbar-top-container{
     display: flex;
@@ -43,9 +45,13 @@ body {
     border-bottom: 1px solid lightgray;
     width: 100%;
 }
+.nike-logo-container{
+    width: 205px;
+}
 #nike_logo {
     width: 60px;
     margin-left: 25px;
+    padding-top: 25px;
 }
 .nav-links {
     display: flex;
@@ -60,6 +66,34 @@ body {
 }
 .form-search{
     margin-top: 23px;
-    margin-right: 26px;
+    margin-right: 16px;
+}
+#search-bar {
+    width: 205px;
+    text-align: center;
 }
 /* -- Jordan logo img section --*/
+.jordan-section-img{
+    position: relative;
+    top: 107px;
+    height: 290px;
+    width: 100%;
+    background-image: url("./img/jordan-navbar.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/*-- shoes collection --*/
+.shoe-collection{
+    height: 585px;
+    width: 100%;
+    background-image: url("./img/jordanShoes.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.jordan-image{
+    height: 585px;
+    width: 100%;
+    background-image: url("./img/jordan_image.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
