@@ -2,7 +2,10 @@ body {
     box-sizing: border-box;
     margin: 0;
 }
+
+
 /*--This is the fixed Navbar Section ---*/
+
 /* --top section of the navbar -- */
 .navbar-container{
     display: flex;
@@ -46,6 +49,7 @@ body {
     border-left: 1px solid lightgray;
 }
 
+
 /* -- bottom section of navbar -- */
 .navbar-bot-container{
     display: flex;
@@ -82,6 +86,8 @@ body {
     text-align: center;
 }
 /*----------- END NAVBAR ---------------*/
+
+
 /*-----------BODY SECTION -------------*/
 .body-section-container{
     width: 100%;
@@ -93,13 +99,65 @@ img{
     height: 100%;
     width: 100%;
 }
-
-/* .video{
-
-} */
+/*-------jordan logo-------*/
 #jordan {
     margin-top: 100px;
 }
+.img-container{
+    position: relative;
+}
+.jordan-text{
+    position: absolute;
+    width: 100%;
+}
+#shoes{
+    left: 26%;
+    top: 76.3%;
+}
+#clothing{
+    left: 31%;
+    top: 76.3%;
+}
+#gear{
+    left: 38%;
+    top: 76.3%;
+}
+#women{
+    left: 43.2%;
+    top: 76.3%;
+}
+#kids{
+    left: 49.88%;
+    top: 76.3%;
+}
+#air{
+    left: 54.8%;
+    top: 76.3%;
+}
+#blog{
+    left: 67.5%;
+    top: 76.3%;
+}
+
+/*--------------Video-------------*/
+.video {
+    position: relative;
+}
+.vid-text {
+    position: absolute;
+    color: white;
+    bottom: 80px;
+    width: 100%;
+    text-align: center;
+}
+.vid-subtext{
+    position: absolute;
+    color: white;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
 
 
 /*-- MEDIA QUIERIES --*/
