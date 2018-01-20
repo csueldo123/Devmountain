@@ -82,28 +82,27 @@ body {
     width: 205px;
     text-align: center;
 }
-/* -- Jordan logo img section --*/
-.jordan-section-img{
-    position: relative;
-    top: 107px;
-    height: 290px;
+/*----------- END NAVBAR ---------------*/
+/*-----------BODY SECTION -------------*/
+.body-section-container{
     width: 100%;
-    background-image: url("./img/jordan-navbar.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-/*-- shoes collection --*/
-.shoe-collection{
-    height: 585px;
+img{
+    height: 100%;
     width: 100%;
-    background-image: url("./img/jordanShoes.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
 }
-.jordan-image{
-    height: 585px;
-    width: 100%;
-    background-image: url("./img/jordan_image.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
+
+.video{
+    border: 1px solid yellow;
 }
+
+
+
+/*-- MEDIA QUIERIES --*/
+/* @media (min-width: 1250px ){
+    
+
+} */
