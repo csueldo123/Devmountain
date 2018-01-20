@@ -1,3 +1,27 @@
 body {
     box-sizing: border-box;
+    margin: 0;
+}
+.navbar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    border-bottom: 1px solid lightgray;
+    position: fixed;
+}
+.nav-top-container{
+    display: flex;
+}
+.nav-bot-container{
+    display: flex;
+}
+.box {
+    text-align: center;
+    color: lightgray;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 80px;
+    height: 40px;
+    border-right: 1px solid lightgray;
 }
