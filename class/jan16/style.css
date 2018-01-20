@@ -2,18 +2,26 @@ body {
     box-sizing: border-box;
     margin: 0;
 }
+/*--This is the fixed Navbar Section ---*/
+/* --top section of the navbar -- */
 .navbar-container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+}
+.navbar-top-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 40px;
+    height: 35px;
     border-bottom: 1px solid lightgray;
-    position: fixed;
+    width: 100%;
 }
-.nav-top-container{
+.nav-left-container{
     display: flex;
 }
-.nav-bot-container{
+.nav-right-container{
     display: flex;
 }
 .box {
@@ -22,6 +30,36 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     width: 80px;
-    height: 40px;
+    height: 35px;
     border-right: 1px solid lightgray;
 }
+
+/* -- bottom section of navbar -- */
+.navbar-bot-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+}
+#nike_logo {
+    width: 60px;
+    margin-left: 25px;
+}
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#navlink{
+    width: 85px;
+    height: 20px;
+    margin: 0px;
+    padding-top: 30px;
+}
+.form-search{
+    margin-top: 23px;
+    margin-right: 26px;
+}
+/* -- Jordan logo img section --*/
