@@ -7,8 +7,8 @@ const data = [1, 2, 3, 4, 5];
 class App extends Component {
   render() {
 
-    const thingsList = data.map(element => {
-      return <div>Hi! { element } </div>
+    const thingsList = data.map((element, i) => {
+      return <div key={ i } >Hi! { element } </div>
     });
 
     return (
