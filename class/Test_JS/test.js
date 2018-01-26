@@ -2,7 +2,7 @@
 //It should have two methods startTime & stopTime.
 //startTime should start a counter.
 //stopTime should stop and return the "counter"(total time).
-//this key word being used with 
+//this key word being used with CONTEXT
 
 class Timer {
     constructor(){
@@ -29,6 +29,7 @@ class Timer {
 const mainTimer = new Timer();
 
 mainTimer.start();
+
 //use of callbacks to test data. LEARN THIS
 setTimeout(()=>{
     const timePassed = mainTimer.stop();
