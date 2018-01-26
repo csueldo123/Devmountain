@@ -10,7 +10,7 @@ class Counter extends Component {
 
         // this.incrementClick = this.incrementClick.bind(this);
         // this.decrementClick = this. decrementClick.bind(this);
-        
+        // YOU USE THE ARROW FUNCTION on HANDLECLICK because it keeps THIS in function.
 
     }
     render(){
