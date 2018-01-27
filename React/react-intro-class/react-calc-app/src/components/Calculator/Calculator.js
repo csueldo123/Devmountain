@@ -23,11 +23,32 @@ class Calculator extends Component {
     }
 
     setDisplay( num ) {
+        // let display = ( this.state.display === '0' ) ? num : this.state.display + num;
+        let display;
+        if( this.state.display === "0"){
+            display = num;
+        }
+        else{
+            display = this.state.display + num;
+        }
         this.setState(
             {
-                display: num,
+                display: ( this.state.display.length < 13 ) ? display : this.state.display,
             }
         )
+    }
+
+    setOperator( op ){
+        if(op === ""){
+            op = "";
+        }
+        else {
+            this.setState(
+                {
+                    operator : op,
+                }
+            )
+        }
     }
 
     render(){
@@ -60,11 +81,11 @@ class Calculator extends Component {
               <div className="btn eight" onClick={ () => this.setDisplay( "8" ) }></div>
               <div className="btn nine" onClick={ () => this.setDisplay( "9" ) }></div>
         
-              <div className="btn equal"></div>
-              <div className="btn multiply"></div>
-              <div className="btn divide"></div>
-              <div className="btn subtract"></div>
-              <div className="btn add"></div>
+              <div className="btn equal" onClick={ () => this.setOperator( "=" ) }></div>
+              <div className="btn multiply" onClick={ () => this.setOperator( "*" ) }></div>
+              <div className="btn divide" onClick={ () => this.setOperator( "/" ) }></div>
+              <div className="btn subtract" onClick={ () => this.setOperator( "-" ) }></div>
+              <div className="btn add" onClick={ () => this.setOperator( "+" ) }></div>
             </div>
         </div>
         );
