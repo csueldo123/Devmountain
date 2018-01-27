@@ -7,7 +7,10 @@ class Calculator extends Component {
 
         this.state = {
             header : "Calculator",
-
+            display : "0",
+            operator : "",
+            temp : 0,
+            resetDisplay : false,
         }
     }
 
@@ -15,6 +18,14 @@ class Calculator extends Component {
         this.setState(
             {
                 header: val,
+            }
+        )
+    }
+
+    setDisplay( num ) {
+        this.setState(
+            {
+                display: num,
             }
         )
     }
@@ -28,25 +39,26 @@ class Calculator extends Component {
 
             {/* this.state.header is saying: (this) look in the Calc component and find (.state) Object and in that obj find property called (header) */}
             <h1 id="header"> { this.state.header } </h1>
-            
+
             <img className="remove-highlight" src={calculatorImg} alt="calculator" />
             <div id="calculator-mask" className="remove-highlight">
               <div className="output">
-                <span className="total"></span>
+              {/* (this.state.display) check the this component method for state obj and find property value "display" */}
+                <span className="total"> { this.state.display } </span>
               </div>
         
               <div className="btn clear"></div>
-        
-              <div className="btn zero"></div>
-              <div className="btn one"></div>
-              <div className="btn two"></div>
-              <div className="btn three"></div>
-              <div className="btn four"></div>
-              <div className="btn five"></div>
-              <div className="btn six"></div>
-              <div className="btn seven"></div>
-              <div className="btn eight"></div>
-              <div className="btn nine"></div>
+                {/* ( this arrow function doesnt have (e) because we arent passing in an event, its just a click and we want it to invoke a function setDisplay.) */}
+              <div className="btn zero" onClick={ () => this.setDisplay( "0" ) }></div>
+              <div className="btn one" onClick={ () => this.setDisplay( "1" ) }></div>
+              <div className="btn two" onClick={ () => this.setDisplay( "2" ) }></div>
+              <div className="btn three" onClick={ () => this.setDisplay( "3" ) }></div>
+              <div className="btn four" onClick={ () => this.setDisplay( "4" ) }></div>
+              <div className="btn five" onClick={ () => this.setDisplay( "5" ) }></div>
+              <div className="btn six" onClick={ () => this.setDisplay( "6" ) }></div>
+              <div className="btn seven" onClick={ () => this.setDisplay( "7" ) }></div>
+              <div className="btn eight" onClick={ () => this.setDisplay( "8" ) }></div>
+              <div className="btn nine" onClick={ () => this.setDisplay( "9" ) }></div>
         
               <div className="btn equal"></div>
               <div className="btn multiply"></div>
