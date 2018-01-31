@@ -24,6 +24,7 @@ class Calculator extends Component {
 
     setDisplay( num ) {
         // let display = ( this.state.display === '0' ) ? num : this.state.display + num;
+        // ? means that if the first part of the expression is truthy then return up to the : ( num ), because its before the semi-colon. if the expression is false return whatever is after : (this.state.display + num)
         let display;
         if( this.state.display === "0"){
             display = num;
@@ -48,6 +49,18 @@ class Calculator extends Component {
                     operator : op,
                 }
             )
+        }
+    }
+
+    calculate( ){
+        if( this.state.operator === '' ){
+            return;
+        }
+        let result;
+
+        switch (this.state.operator ){
+            case '+': 
+            result 
         }
     }
 
@@ -81,7 +94,7 @@ class Calculator extends Component {
               <div className="btn eight" onClick={ () => this.setDisplay( "8" ) }></div>
               <div className="btn nine" onClick={ () => this.setDisplay( "9" ) }></div>
         
-              <div className="btn equal" onClick={ () => this.setOperator( "=" ) }></div>
+              <div className="btn equal" onClick={ () => this.calculate() }></div>
               <div className="btn multiply" onClick={ () => this.setOperator( "*" ) }></div>
               <div className="btn divide" onClick={ () => this.setOperator( "/" ) }></div>
               <div className="btn subtract" onClick={ () => this.setOperator( "-" ) }></div>
