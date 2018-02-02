@@ -4,21 +4,21 @@
 //stopTime should stop and return the "counter"(total time).
 //this key word being used with CONTEXT
 
-class Timer {
-    constructor(){
-        this.interval;
-        this.totalTime = 0;
-    }
-    start(){
-        this.interval = setInterval(() => {
-            this.totalTime++
-        }, 1000)
-    }
-    stop(){
-        clearInterval(this.interval)
-        return this.totalTime;
-    }
-}
+// class Timer {
+//     constructor(){
+//         this.interval;
+//         this.totalTime = 0;
+//     }
+//     start(){
+//         this.interval = setInterval(() => {
+//             this.totalTime++
+//         }, 1000)
+//     }
+//     stop(){
+//         clearInterval(this.interval)
+//         return this.totalTime;
+//     }
+// }
 
 
 
@@ -26,15 +26,15 @@ class Timer {
 
 // this is the test section of the solution up above 
 
-const mainTimer = new Timer();
+// const mainTimer = new Timer();
 
-mainTimer.start();
+// mainTimer.start();
 
 //use of callbacks to test data. LEARN THIS
-setTimeout(()=>{
-    const timePassed = mainTimer.stop();
-    console.log(timePassed)
-}, 5000)
+// setTimeout(()=>{
+//     const timePassed = mainTimer.stop();
+//     console.log(timePassed)
+// }, 5000)
 
 
 
