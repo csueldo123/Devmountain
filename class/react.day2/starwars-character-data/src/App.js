@@ -10,6 +10,7 @@ class App extends Component {
       <div className="App">
         <Header text="Star Wars Characters!" />
         <Parent name="Darth Vader"/>
+        <Child title="Earth"/>
       </div>
     );
   }
