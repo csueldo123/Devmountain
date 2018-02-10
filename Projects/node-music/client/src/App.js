@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
+import axios from 'axios';
+import Profile from './Components/Profile.jsx';
 
 class App extends Component {
   constructor(props){
@@ -9,13 +11,18 @@ class App extends Component {
       query: ''
     }
   }
-
+  
+  
   search(){
     console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     console.log('FETCH_URL', FETCH_URL);
-
+    axios
+      .get('/api/artist?artist='+ this.state.query)
+      // .then((res) =>{
+      //   console.log(res);
+      // })
   }
 
   render() {
@@ -24,6 +31,7 @@ class App extends Component {
         <div className="App-title">Node Music</div>
         <FormGroup>
           <InputGroup>
+
             <FormControl
             type="text"
             placeholder="Search for an Artist"
@@ -35,16 +43,15 @@ class App extends Component {
               }
             }}
             />
+
             <InputGroup.Addon onClick={ () => this.search() }>
               <Glyphicon glyph="search"></Glyphicon>
             </InputGroup.Addon>
           </InputGroup>
         </FormGroup>
-        <div className="Profile">
-          <div>Artist Pic</div>
-          <div>Artist Name</div>
-        </div>
-        <div className="Gallery">Gallery</div>
+
+       <Profile />
+        <div className="Gallery">Gallery of Albums</div>
       </div>
     );
   }
