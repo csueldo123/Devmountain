@@ -17,12 +17,26 @@ class App extends Component {
   
   
   search(){
-    console.log('this.state', this.state);
+    // console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
-    console.log('FETCH_URL', FETCH_URL);
-    axios
-      .get('/api/artist?artist='+ this.state.query)
+    // console.log('FETCH_URL', FETCH_URL);
+    //grabs the token given to us by spotify and parses it into an object.
+    let parsed = queryString.parse( window.location.search );
+    //console.log( parsed ) = access_token: "Bdjkfsoeijlkaolkj323"
+    let accessToken = parsed.access_token;
+     //conole.log( accessToken ) = Bdjkfsoeijlkaolkj323
+     fetch(FETCH_URL, {
+       headers: {
+         'Authorization': 'Bearer ' + accessToken 
+       }
+     })
+     .then(res => res.json())
+     .then((res) => {
+       console.log(res)
+      })
+    // axios
+    //   .get('/api/artist?artist='+ this.state.query, )
       // .then((res) =>{
       //   console.log(res);
       // })
@@ -36,7 +50,9 @@ class App extends Component {
      //conole.log( accessToken ) = Bdjkfsoeijlkaolkj323
     
      fetch( 'https://api.spotify.com/v1/me', {
-       headers: {'Authorization': 'Bearer ' + accessToken }
+       headers: {
+         'Authorization': 'Bearer ' + accessToken 
+        }
      })
      .then(res => res.json())
      //.then( data => console.log(data)) shows all the my profile info. 

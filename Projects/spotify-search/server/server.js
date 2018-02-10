@@ -3,6 +3,7 @@ const request = require('request');
 const querystring = require('querystring');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const artistService = require('./artistService');
 
 const app = express();
 
@@ -55,6 +56,13 @@ app.get('/callback', function(req, res) {
 
 //THIS IS THE END OF THE AUTHORIZATION PROCESS
 //---------------------------------------------------------------------------------------
+
+app.get('api/artist', (req, res)=>{
+  artistService.getArtist(req.query.artist, req.query.accessToken)
+    .then(artist =>{
+      res.send(artist);
+    });
+})
 
 const port = process.env.PORT || 8000
 
