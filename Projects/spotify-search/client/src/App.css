@@ -1,24 +1,40 @@
 body{
-  background:#000;
+  background:#242424;
   color: #fff;
 }
 .App {
   text-align: center;
-  padding: 5%;
+  /* padding: 5%; */
 }
 .App-title{
-  font-size: 26px;
+  font-size: 35px;
+  padding-bottom: 10px;
 }
 
+/* Header */
+.header-container {
+  background-color: #131313;
+  padding-top: 4%;
+  width: 100%;
+  
+}
+.logged-in{
+
+}
+.form-group {
+  padding: 3% 5%;
+}
 /* Profiles */
 
 .profile {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .profile-info {
-  margin-left: 10px;
+  margin-left: 3%;
+  max-width: 40%;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -26,19 +42,20 @@ body{
 }
 
 .profile-img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border: 3px solid #fff;
-  border-radius: 75px;
+  border-radius: 100px;
   object-fit: cover;
 }
 
 .profile-name {
-  font-size: 26px;
+  font-size: 45px;
+  padding: 5px;
 }
 
 .profile-followers, .profile-genres {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 /* Gallery */

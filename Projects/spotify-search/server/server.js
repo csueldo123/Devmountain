@@ -4,12 +4,17 @@ const querystring = require('querystring');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const artistService = require('./artistService');
-
+const axios = require('axios');
+require('dotenv').config();
 const app = express();
 
 app.use( cors() );
 app.use( bodyParser.json() );
 
+let access_token;
+
+const BASE_URL = 'https://api.spotify.com/v1/search?';
+const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
 //-----------------------------------------------------------------------------------------
 // ------THIS IS ALL THE CODE FOR THE LOGIN AUTHORIZATION TOKENS------
 
@@ -48,8 +53,9 @@ app.get('/callback', function(req, res) {
     json: true
   }
   request.post(authOptions, function(error, response, body) {
-    var access_token = body.access_token
+    access_token = body.access_token
     let uri = process.env.FRONTEND_URI || 'http://localhost:3000'
+
     res.redirect(uri + '?access_token=' + access_token)
   })
 })
@@ -57,11 +63,44 @@ app.get('/callback', function(req, res) {
 //THIS IS THE END OF THE AUTHORIZATION PROCESS
 //---------------------------------------------------------------------------------------
 
-app.get('api/artist', (req, res)=>{
-  artistService.getArtist(req.query.artist, req.query.accessToken)
-    .then(artist =>{
-      res.send(artist);
-    });
+// app.get('api/artist', (req, res)=>{
+//   artistService.getArtist(req.query.artist, req.query.accessToken)
+//     .then(artist =>{
+//       res.send(artist)
+//     })
+// })
+
+app.get(`/search`, (request, response) => { 
+  let data = {};
+  let FETCH_URL = `${BASE_URL}q=${request.query.query}&type=artist&limit=1`;
+
+  axios({
+    method: 'get',
+    url: FETCH_URL,
+    headers: {
+      'Authorization': 'Bearer ' + access_token 
+    }
+  })
+  .then(res => {
+    console.log(res)
+    const artist = res.data.artists.items[0];
+    console.log('artist', artist)
+    data.artist = artist;
+
+    //after we get the artist back and we have their ID we can call a request to get the top albums using spotify route and the id.
+    axios({
+      method: 'get',
+      url: `${ALBUM_URL}${artist.id}/top-tracks?country=US&`,
+      headers:{
+        'Authorization': 'Bearer ' + access_token
+      }
+    })
+    .then(res => {
+      const tracks = res.data.tracks;
+      data.tracks = tracks;
+      response.send(data);
+    })
+   });
 })
 
 const port = process.env.PORT || 8000
