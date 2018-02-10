@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 // queryString is used in componentDidMount. Parse a query string into an object. Leading ? or # are ignored, so you can pass location.search or location.hash directly. .parse(string, [options])
 import queryString from "query-string";
 import Profile from './Components/Profile.jsx';
@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state = {
       serverData: {} ,
-      query: ''
+      query: '',
+      artist: null
     }
   }
   
@@ -32,9 +33,11 @@ class App extends Component {
        }
      })
      .then(res => res.json())
-     .then((res) => {
-       console.log(res)
-      })
+     .then(json => {
+       const artist = json.artists.items[0];
+       console.log('artist', artist)
+       this.setState({artist});
+      });
     // axios
     //   .get('/api/artist?artist='+ this.state.query, )
       // .then((res) =>{
@@ -48,7 +51,10 @@ class App extends Component {
     //console.log( parsed ) = access_token: "Bdjkfsoeijlkaolkj323"
     let accessToken = parsed.access_token;
      //conole.log( accessToken ) = Bdjkfsoeijlkaolkj323
-    
+     //if there is no access token, dont do anything else. user has to login
+    if(!accessToken){
+      return;
+    }
      fetch( 'https://api.spotify.com/v1/me', {
        headers: {
          'Authorization': 'Bearer ' + accessToken 
@@ -74,7 +80,7 @@ class App extends Component {
       { this.state.serverData.user ?
       <div>
         <div>Logged in as {this.state.serverData.user.name}</div>
-        {console.log(this.state.serverData)}
+        {console.log('user', this.state.serverData.user)}
           <div className="App-title">Node Music</div>
           <FormGroup>
             <InputGroup>
@@ -97,7 +103,9 @@ class App extends Component {
             </InputGroup>
           </FormGroup>
 
-        <Profile />
+          <Profile 
+            artist={this.state.artist}
+          />
           <div className="Gallery">Gallery of Albums</div>
 
 
