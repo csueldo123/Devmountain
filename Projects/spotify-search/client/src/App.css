@@ -20,6 +20,9 @@ body{
 .profile-info {
   margin-left: 10px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile-img {
@@ -36,4 +39,18 @@ body{
 
 .profile-followers, .profile-genres {
   font-size: 18px;
+}
+
+/* Gallery */
+.track{
+  display: inline-block;
+  width: 220px;
+  height: 220px;
+  margin: 20px;
+}
+
+.track-img{
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
 }

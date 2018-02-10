@@ -5,6 +5,7 @@ import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 // queryString is used in componentDidMount. Parse a query string into an object. Leading ? or # are ignored, so you can pass location.search or location.hash directly. .parse(string, [options])
 import queryString from "query-string";
 import Profile from './Components/Profile.jsx';
+import Gallery from './Components/Gallery.jsx';
 
 class App extends Component {
   constructor(props){
@@ -12,7 +13,8 @@ class App extends Component {
     this.state = {
       serverData: {} ,
       query: '',
-      artist: null
+      artist: null,
+      tracks: []
     }
   }
   
@@ -20,7 +22,8 @@ class App extends Component {
   search(){
     // console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
-    const FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
+    let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
+    const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
     // console.log('FETCH_URL', FETCH_URL);
     //grabs the token given to us by spotify and parses it into an object.
     let parsed = queryString.parse( window.location.search );
@@ -37,6 +40,20 @@ class App extends Component {
        const artist = json.artists.items[0];
        console.log('artist', artist)
        this.setState({artist});
+
+       //after we get the artist back and we have their ID we can call a request to get the top albums using spotify route and the id.
+       FETCH_URL = `${ALBUM_URL}${artist.id}/top-tracks?country=US&`
+       fetch(FETCH_URL, {
+         headers:{
+          'Authorization': 'Bearer ' + accessToken 
+         }
+       })
+       .then(res => res.json())
+       .then(json => {
+         console.log('artist top tracks:', json);
+         const tracks = json.tracks;
+         this.setState({tracks});
+       })
       });
     // axios
     //   .get('/api/artist?artist='+ this.state.query, )
@@ -94,7 +111,8 @@ class App extends Component {
                 if (event.key === 'Enter'){
                   this.search()
                 }
-              }}
+              }
+            }
               />
 
               <InputGroup.Addon onClick={ () => this.search() }>
@@ -103,11 +121,18 @@ class App extends Component {
             </InputGroup>
           </FormGroup>
 
-          <Profile 
-            artist={this.state.artist}
-          />
-          <div className="Gallery">Gallery of Albums</div>
-
+          { 
+            this.state.artist !==null ?
+          <div>
+            <Profile 
+              artist={this.state.artist}
+            />
+            <Gallery 
+              tracks={this.state.tracks}
+            />
+          </div>
+         :  <div></div>
+        }
 
 
           {/* -------LOG IN PART 2 -------
