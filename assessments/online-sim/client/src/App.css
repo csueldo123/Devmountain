@@ -1,12 +1,78 @@
 body{
   background-color: #6297B6;
+  font-family: 'Nunito', sans-serif;
+}
+h1{
+  color: #ffffff;
+  font-weight: 100;
+  letter-spacing: 1px;
 }
 .App {
   text-align: center;
 }
-.card-container {
-  max-width: 250px;
-  height: 300px;
-  border: 1px solid gray;
+.App-title {
+  font-size: 3em;
+  color: #ffffff;
+  margin: 40px auto 5px auto
 }
-
+.card-container {
+  max-width: 800px;
+  height: 225px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.card {
+  margin-bottom: 10px;
+  background-color: #fff;
+  min-width: 125px;
+  min-height: 175px;
+  box-shadow: 0px 7px 18px #4e4e4e;
+}
+.card h5 {
+  padding-top: 10px;
+  margin: 0px;
+}
+.card img {
+  padding-top: 10px;
+}
+input{
+  margin: 12px;
+}
+input:focus {
+  background-color: #6297B6;
+}
+.search-city{
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  background-color: #6297B6;
+  color: #cccccc;
+  font-size: 15px;
+  text-align: center;
+  outline: none;
+  width: 200px;
+  height: 30px;
+}
+select {
+  margin: 5px;
+  font-size: 15px;
+  width: 207px;
+  height: 30px;
+}
+.weather-btn {
+  width: 207px;
+  height: 25px;
+  border-radius: 4px;
+  font-size: 15px;
+  color: #6297B6;
+  margin: 12px;
+}
+.recent-cities-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 60%;
+  margin: auto;
+}

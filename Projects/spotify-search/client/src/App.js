@@ -123,9 +123,11 @@ class App extends Component {
 
             <div className="App-title">Node Music</div>
             
-            <div className="logged-in">Logged in as {this.state.serverData.user.name}</div>
+            <div className="logged-in">
+            Logged in as {this.state.serverData.user.name}
+            </div>
             {console.log('user', this.state.serverData.user)}
-            <button onClick={ () => this.logout() }>logout</button>
+            <button className="log-out" onClick={ () => this.logout() }>logout</button>
            
             <FormGroup className="form-group">
               <InputGroup>
@@ -150,7 +152,7 @@ class App extends Component {
         </div>
           { 
             this.state.artist !==null ?
-          <div>
+          <div className="profile-container">
             <Profile 
               artist={this.state.artist}
             />
@@ -165,8 +167,17 @@ class App extends Component {
           {/* -------LOG IN PART 2 -------
           WHEN YOU FIRST GO TO WEBPAGE, BECAUSE THERE IS NO serverData IN STATE. there will be a button here that when onClick is activated it will redirect the user to http://localhost:8000/login which is our backend get request to get the the log in through spotity */}
 
-      </div> : <button onClick={()=> window.location= 'http://localhost:8000/login'}>Log In</button>
-          }
+      </div> 
+      
+      : 
+      <div className="log-in-container">
+        <button onClick={()=> window.location= 'http://localhost:8000/login'}>
+          Please Log In
+        </button>
+      </div>
+          
+      }
+
       </div>
     );
   }

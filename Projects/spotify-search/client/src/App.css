@@ -18,8 +18,28 @@ body{
   width: 100%;
   
 }
-.logged-in{
-
+.logged-in {
+  margin-bottom: 20px;
+}
+.log-out{
+  width: 75px;
+  border-radius: 12px;
+  background-color: #1cb04a;
+  border: none;
+}
+.log-in-container{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.log-in-container button {
+  margin: auto;
+  width: 150px;
+  height: 30px;
+  border-radius: 17px;
+  background-color: #1cb04a;
+  color: white;
+  border: none;
 }
 .form-group {
   padding: 3% 5%;
@@ -70,4 +90,9 @@ body{
   width: 220px;
   height: 220px;
   object-fit: cover;
+}
+
+.profile-container{
+  width: 80%;
+  margin: auto;
 }

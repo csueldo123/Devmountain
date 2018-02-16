@@ -6,11 +6,11 @@ class Card extends Component {
 
         return(
             <div>
-                <div className="card-container">
-                    <h3>{this.props.day}</h3>
-                    <h3>{this.props.conditions}</h3>
-                    <h4>{this.props.high}</h4>
-                    <h4>{this.props.low}</h4>
+                <div className="card">
+                    <h5>{this.props.day}</h5>
+                    <h5>{this.props.conditions}</h5>
+                    <h5>High {this.props.high}</h5>
+                    <h5>Low {this.props.low}</h5>
                     <img src={this.props.icon}></img>
                 </div>
             </div>
