@@ -62,11 +62,11 @@ class App extends Component {
       // .then((res) =>{
       //   console.log(res);
       // })
-      debugger
+      //debuger
     axios
       .get(`/search/?query=${this.state.query}`)
       .then((res) => {
-        debugger
+        //debugger
         console.log(res)
         this.setState({
           artist: res.data.artist,

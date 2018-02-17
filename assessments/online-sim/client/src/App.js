@@ -17,9 +17,11 @@ class App extends Component {
     this.getWeather = this.getWeather.bind(this)
   }
 
+// ----------------------------METHODS--------------------------
+
   getWeather( event ){
     //makes the page not refresh by default form
-    debugger
+    //debugger
     event.preventDefault()
     axios
       .get(`/search/?state=${ this.state.state }&city=${ this.state.city }`)
@@ -36,49 +38,62 @@ class App extends Component {
 
   handleChange( event ){
       this.setState( { 
-        [ event.target.name ]: event.target.value 
+        [ event.target.name ]: event.target.value.toUpperCase()
       
     }) 
   }
 
+  //-----------------------END METHODS----------------------------
+
   render() {
 
-      let cities = this.state.cities.map((city) =>{
-        return <h1>{city}</h1>
-      })
+    let cities = this.state.cities.map( ( city, i ) => {
 
-      let cards = this.state.forcast.map( (e, i) =>{
-        if(i< 5){
-          return <Card
-          key = {i}
-          day = {e.date.weekday}
-          conditions = {e.conditions}
-          high = {e.high.fahrenheit}
-          low = {e.low.fahrenheit}
-          icon = {e.icon_url}
+      return <h1 key= { i }>{ city.toUpperCase() }</h1>
+
+    })
+
+    let cards = this.state.forcast.map( ( e, i ) => {
+      if( i < 5 ){
+        return (
+          <Card
+            key = { i }
+            day = { e.date.weekday }
+            conditions = { e.conditions }
+            high = { e.high.fahrenheit }
+            low = { e.low.fahrenheit }
+            icon = { e.icon_url }
           />
-        }
-       })
+        )
+      }
+      return <div></div>
+    })
 
     return (
 
       <div className="App">
+
         <header className="App-header">
           <h1 className="App-title"> &lt;DevWeather&nbsp;/&gt; </h1>
         </header>
-          
-          <form onSubmit={this.getWeather} className="form-group">
-            <input className="search-city" 
+
+          {/* ---------------------FORM SECTION-------------------------*/}
+
+        <form onSubmit={ this.getWeather } className="form-group">
+
+          <input 
+            className="search-city" 
             type="text"
             placeholder="City"
             name = "city"
-            value = { this.state.city } 
-            onChange = { this.handleChange}
-            ></input>
+            value = { this.state.city }
+            onChange = { this.handleChange }
+          >
+          </input>
 
-            <br></br>
+          <br></br>
 
-            <select onChange = { this.handleChange } name= "state">
+          <select onChange = { this.handleChange } name= "state">
               <option value="">Select A State</option>
               <option value="Alabama">Alabama</option>
               <option value="Alaska">Alaska</option>
@@ -129,17 +144,21 @@ class App extends Component {
               <option value="West Virginia">West Virginia</option>
               <option value="Wisconsin">Wisconsin</option>
               <option value="Wyoming">Wyoming</option>
-            </select>
+          </select>
 
-            <br></br>
+          <br></br>
 
-            <button 
-              className="weather-btn"
-              type="submit" 
-              value="Get Weather"
-             
-              >Get Weather</button>
-          </form>
+          <button 
+            className="weather-btn"
+            type="submit" 
+            value="Get Weather"
+          >
+            Get Weather
+          </button>
+
+        </form>
+
+          {/* ----------------END FORM SECTION-------------------- */}
 
         { 
           this.state.forcast.length > 0 ? 
@@ -165,6 +184,7 @@ class App extends Component {
         <div className="recent-cities-container">
           {cities}
         </div>
+
       </div>
     );
   }

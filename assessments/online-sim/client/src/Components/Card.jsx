@@ -11,7 +11,7 @@ class Card extends Component {
                     <h5>{this.props.conditions}</h5>
                     <h5>High {this.props.high}</h5>
                     <h5>Low {this.props.low}</h5>
-                    <img src={this.props.icon}></img>
+                    <img src={this.props.icon} alt="img"></img>
                 </div>
             </div>
         )

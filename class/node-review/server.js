@@ -65,4 +65,10 @@ app.listen(port, ()=>{console.log(`Listening on port ${ port }`)});
 //request.query and request.params params need to be defined in app.get with / . query you dont need to define. 
 // 
 
+// if you want to use .env look it up and learn about it/ look up api weather porject
+//npm install dotenv
+// require( 'dotenv' )
 
+//in .env file
+// CONNECTING_STRING = postgres://gmeccxpslkjdf:c583743bj435 <--API KEY
+// PORT = 6060 or whatever you want it to be
