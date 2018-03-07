@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+.App-header {
+  background-color: #AB2A19;
+  height: 70px;
+  padding: 20px;
+  color: #ffff;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+.links {
+  text-decoration: none;
+  color: #ffff;
+}
+.main-content-container{
+  display: flex;
+  flex-direction: column;
+}
+.bins {
+  height: 50px;
+  width: 500px;
+  border-radius: 4px;
+  background-color: #AB2A19;
+  color: #ffff;
+  margin: 10px auto;
+}
+.btn{
+  height: 50px;
+  width: 500px;
+  border-radius: 4px;
+  background-color: #AB2A19;
+  color: #ffff;
+  margin: 10px auto;
+  font-size: 15px;
+  cursor: pointer;
+}
+/* BIN */
+.bin-main {
+  display: flex;
+}
+.bin-left-container {
+  width: 30%;
+  height: 100vh;
+}
+.bin-right-container {
+  width: 70%;
+  height: 100vh;
+}
