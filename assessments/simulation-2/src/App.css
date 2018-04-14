@@ -1,28 +1,53 @@
-.App {
+.login_page{
+  background-color: #AFD4C0;
+}
+.login_container{
+  background-color: #ffff;
+  margin: 0 auto;
+  width: 850px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login_container img {
+  margin-bottom: 50px;
+}
+.login_form{
+  width: 100%;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.login_form label {
+  position: relative;
+  left: -28%;
+  font-size: 20px;
+  font-weight: 700;
+}
+.login_form input {
+  font-size: 25px;
+  width: 70%;
+  margin-bottom: 25px;
+  margin-top: 3px;
+  border: 1px solid #519872;
+  outline: none;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+/* LOGIN BUTTONS */
 
-.App-title {
-  font-size: 1.5em;
-}
+.auth_btn_container{
 
-.App-intro {
-  font-size: large;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.auth_btn_login, .auth_btn_register{
+  border: none;
+  width: 130px;
+  height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.auth_btn_login{
+  background-color: #8aea92;
+}
+.auth_btn_register{
+  background-color: #3b5249;
 }

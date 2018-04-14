@@ -1,0 +1,25 @@
+.BinButton{
+    background: #ED6B5A;
+    width: 50%;
+    height: 65px;
+    font-size: 30px;
+    margin: 15px auto;
+    /* padding: 15px 15px 15px 70px; */
+    border-radius: 4px;
+    text-align: left;
+  }
+  .BinButton-Link{
+    padding: 15px 0px 0px 88px;
+    color: #ffff;
+  }
+  
+  .BinButtonAdd {
+    background: #ED6B5A;
+    width: 50%;
+    height: 65px;
+    font-size: 30px;
+    margin: 15px auto;
+    /* padding: 15px 15px 15px 70px; */
+    border-radius: 4px;
+    text-align: left;
+  }

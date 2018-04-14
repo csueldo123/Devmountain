@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import Header from 'Header.js';
+import Header from '../Header/Header.js';
 import axios from 'axios';
 
 
-import '../App.css';
+import './Bin.css';
 
 class Bin extends Component {
   constructor(props){
     super(props)
     this.state = {
       isEdit: false,
-      name:null,
+      name:'',
       price: 0,
       image:'',
-      buttonText: 'EDIT',
+      buttonText: '+ Add to Inventory',
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleDelete = this.handleDelete.bind(this);
@@ -22,40 +22,40 @@ class Bin extends Component {
   componentDidMount(){
     axios
       .get(`/api/bin/${this.props.match.params.shelf}${this.props.match.params.bin}`)
-      .then((bin)=>{
+      .then( (bin)=>{
           bin.data.isEdit = bin.data.name ? true : false;
-          bin.data.isEdit = "Edit"
+          bin.data.buttonText = bin.data.name ? "Edit" : "+ Add to Inventory";
+          bin.data.price = bin.data.price ? bin.data.price : "";
+          bin.data.name = bin.data.name ? bin.data.name : "";
           this.setState(bin.data)
       })
   }
 
   handleDelete(){
     axios
-      .delete(`/api/bin/${this.props.match.params.shelf}${this.props.match.params.bin}`)
+      .delete(`/api/bin/${this.state.id}`)
       .then(()=>{
         this.props.history.goBack();
       })
   }
-  handleClick(){
-
-  }
   handleSave(){
-    if(this.state.buttonText){
+    debugger
+    if(this.state.buttonText === "Edit"){
       this.setState({
         buttonText: 'Save'
       })
     }else{
           axios
-            .put(`/api/bin/${this.props.match.params.shelf}${this.props.match.params.bin}`, {
+            .put(`/api/bin/${this.state.id}`, {
               name: this.state.name,
               price: this.state.price,
             })
             .then((bin)=>{
-              if(this.state.isEdit){
+              if(!this.state.isEdit){
                 this.props.history.goBack();
               }else{
                 bin.data.isEdit = this.state.isEdit;
-                bin.data.isEdit = "Edit"
+                bin.data.buttonText = "Edit"
                 this.setState(bin.data)
               }
             })
@@ -71,16 +71,16 @@ class Bin extends Component {
     if(this.state.isEdit){
       input = (
         <div className="binContainer">
-          <img src={this.state.image} alt=""/>
+          <img src={ this.state.image } alt=""/>
 
           <div>
           <label>Name</label>
-          <input onChange={this.handleChange} name="name" type="text" value={this.state.name}/>
+          <input onChange={ this.handleChange } name="name" type="text" value={ this.state.name }/>
           <label>Price</label>
-          <input onChange={this.handleChange} name="price" type="text" value={this.state.price}/>
+          <input onChange={ this.handleChange } name="price" type="text" value={ this.state.price }/>
           </div>
-          <button>{this.state.buttonText}</button>
-          <button>DELETE</button>
+          <button onClick={ this.handleSave }>{ this.state.buttonText }</button>
+          <button onClick={ this.handleDelete }>DELETE</button>
         </div>
       )
     }else {
@@ -90,18 +90,18 @@ class Bin extends Component {
   
             <div>
             <label>Name</label>
-            <input type="text" value={this.state.name}/>
+            <input onChange={ this.handleChange } type="text" name= "name" value={ this.state.name }/>
             <label>Price</label>
-            <input type="text" value={this.state.price}/>
+            <input onChange={ this.handleChange } type="text" name="price" value={ this.state.price }/>
             </div>
-            <button>{this.state.buttonText}</button>
-            <button>+ Add to Inventory</button>
+            <button onClick={ this.handleSave }>{ this.state.buttonText }</button>
           </div>
       )
     }
     return (
       <div>
         <Header isAdd={this.state.name} bin={this.props.match}/>
+        {input}
       </div>
     );
   }

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header.js';
 import {Link} from 'react-router-dom';
 
 
-
-import '../App.css';
+import './Home.css';
 
 class Home extends Component {
   render() {
     const shelfArr = ['A', 'B', 'C', 'D'];
     const shelves = shelfArr.map((shelf, i)=>{
         return(
-            <div key={i}>
+            <div key={i} className="ShelfButton">
 
             <Link to={`/bins/${shelf}`}>
-                <div className="shelfButton">
+                <div className="ShelfButton-Link">
                     {`Shelf ${shelf}`}
                 </div>
             </Link>
@@ -23,6 +23,7 @@ class Home extends Component {
     })
     return (
       <div>
+        <Header />
         {shelves}
       </div>
     );

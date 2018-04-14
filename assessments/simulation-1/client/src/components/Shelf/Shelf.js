@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Header from './Header.js';
+import Header from '../Header/Header.js';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 
-import '../App.css';
+import './Shelf.css';
 
 class Shelf extends Component {
     constructor(props){
@@ -24,26 +24,30 @@ class Shelf extends Component {
             })
     }
   render() {
-    const bins = this.state.map((bin, i)=>{
+    const bins = this.state.bins.map((bin)=>{
         if(bin.name){
             return(
-                    <Link key={bin.id} to={`/bin/${bin.shelf}${bin.bin}`}>
-                    <div className="BinButton">
-                        Bin {bin.bin}
-                    </div>
-                     </Link>
+                <div className="BinButton" key={bin.id}>
+                    <Link to={`/bin/${bin.shelf}${bin.bin}`}>
+                        <div className="BinButton-Link">
+                            Bin {bin.bin}
+                        </div>
+                    </Link>
+                </div>
             );
         }else{
             return(
-                    <Link key={bin.id} to={`/bin/${bin.shelf}${bin.bin}`}>                
-                    <div className="BinButtonAdd">+ Inventory To Bin</div>
-                    </Link>
+                <div className="BinButtonAdd" key={bin.id}>
+                    <Link to={`/bin/${bin.shelf}${bin.bin}`}>                
+                        <div className="BinButton-Link">+ Inventory To Bin</div>
+                    </Link>  
+                </div>
             )
         }
     })
     return (
       <div>
-          <Header shelf={this.props.match.params.shelf}/>
+        <Header shelf={this.props.match.params.shelf}/>
         {bins}
       </div>
     );

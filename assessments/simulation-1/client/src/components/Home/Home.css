@@ -1,0 +1,15 @@
+.ShelfButton{
+    margin: 0 auto;
+    background: #D1483B;
+    width: 50%;
+    height: 65px;
+    font-size: 30px;
+    margin: 15px auto;
+    /* padding: 15px 15px 15px 70px; */
+    border-radius: 4px;
+    text-align: left;
+}
+.ShelfButton-Link{
+  padding: 15px 0px 0px 88px;
+  color: #ffff;
+}
