@@ -105,4 +105,4 @@ app.get(`/search`, (request, response) => {
 
 const port = process.env.PORT || 8000
 
-app.listen(port, () => { console.log(`Listening on port ${port}. Go /login to initiate authentication flow.`)});
+app.listen(port, () => { console.log(`Listening on port ${port}. Go /login to initiate authentication flow.`)})
